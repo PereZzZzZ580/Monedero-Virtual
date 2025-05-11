@@ -33,6 +33,18 @@ class ClienteController {
     if (!cliente) return "Cliente no encontrado.";
     return `El saldo de ${cliente.nombre} es: ${cliente.saldo}`;
   }
+
+  obtenerCliente(id) {
+    return Storage.buscarCliente(id);
+  }
+
+  actualizarSaldo(id, monto) {
+    const cliente = this.obtenerCliente(id);
+    if (!cliente) return "Cliente no encontrado.";
+    Storage.actualizarSaldo(id, cliente.saldo + monto);
+    return `Saldo actualizado: ${cliente.saldo + monto}`;
+  }
+  
 }
 
 export default ClienteController;
