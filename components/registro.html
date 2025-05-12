@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro - Monedero Virtual</title>
+    <link rel="stylesheet" href="../styles/registro.css">
+</head>
+<body>
+    <header>
+        <h1>Registrarse en Monedero Virtual</h1>
+        <a href="../index.html">Inicio</a>
+    </header>
+
+    <main>
+        <form id="form-registro">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="idCliente">ID de Cliente:</label>
+            <input type="text" id="idCliente" required>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+
+        <div id="mensaje"></div>
+    </main>
+
+    <script src="../js/registro.js"></script>
+</body>
+</html>

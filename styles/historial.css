@@ -1,0 +1,25 @@
+.historial {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.transaccion {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.transaccion span.tipo {
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+.transaccion span.monto {
+    font-weight: bold;
+    color: #ff6f61;
+}

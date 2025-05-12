@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Monedero Virtual</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+    <header>
+        <h1>Iniciar Sesión</h1>
+        <a href="../index.html">Inicio</a>
+    </header>
+
+    <main>
+        <form id="form-login">
+            <label for="idClienteLogin">ID de Cliente:</label>
+            <input type="text" id="idClienteLogin" required>
+
+            <button type="submit">Ingresar</button>
+        </form>
+
+        <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+
+        <div id="mensaje-login"></div>
+    </main>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
