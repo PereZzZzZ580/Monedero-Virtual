@@ -2,54 +2,82 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(120deg, #3f51b5, #1e88e5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
     color: #fff;
     text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* 📌 Header */
 header {
     padding: 1rem;
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* 🏦 Tarjeta de información del cliente */
 #info-cliente {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 500px;
-    margin: auto;
-    backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin: 2rem auto;
+    backdrop-filter: blur(15px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#info-cliente:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 #info-cliente h2 {
     color: #ffeb3b;
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-/* 💰 Información de saldo y puntos */
 #info-cliente p {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-top: 10px;
+    line-height: 1.5;
 }
 
 #saldo {
     font-weight: bold;
     color: #ff6f61;
+    font-size: 1.5rem;
 }
 
 #puntos {
     font-weight: bold;
     color: #4caf50;
+    font-size: 1.5rem;
 }
 
 #rango {
     font-weight: bold;
     color: #ffc107;
+    font-size: 1.5rem;
 }
 
 /* 🔘 Botones interactivos */
@@ -57,26 +85,35 @@ header {
     background-color: #ff6f61;
     border: none;
     color: white;
-    padding: 12px 20px;
-    font-size: 18px;
+    padding: 15px 25px;
+    font-size: 1.2rem;
     cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .boton-dashboard:hover {
     background-color: #d15249;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* 📊 Sección de historial */
 .historial {
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    max-width: 700px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.historial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
