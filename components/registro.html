@@ -9,25 +9,25 @@
 <body>
     <header>
         <h1>Registrarse en Monedero Virtual</h1>
-        <a href="../index.html">Inicio</a>
+        <a href="../index.html" id="boton-inicio">Inicio</a>
     </header>
 
     <main>
-        <form id="form-registro">
+        <form id="form-registro" autocomplete="off">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" required>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off">
 
             <label for="idCliente">ID de Cliente:</label>
-            <input type="text" id="idCliente" required>
+            <input type="text" id="idCliente" name="idCliente" required autocomplete="off">
 
             <button type="submit">Registrarse</button>
         </form>
 
         <p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
 
-        <div id="mensaje"></div>
+        <div id="mensaje-registro"></div>
     </main>
 
-    <script src="../js/registro.js"></script>
+    <script type="module" src="../js/ui/registro.js"></script>
 </body>
 </html>

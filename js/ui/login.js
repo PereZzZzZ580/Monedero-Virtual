@@ -1,13 +1,15 @@
-import Storage from "../database/storage.js";
+import Storage from "../../database/storage.js";
 
 document.getElementById("form-login").addEventListener("submit", (e) => {
     e.preventDefault();
 
     const idCliente = document.getElementById("idClienteLogin").value.trim();
+    const mensaje = document.getElementById("mensaje-login");
     const cliente = Storage.buscarCliente(idCliente);
 
     if (!cliente) {
-        document.getElementById("mensaje-login").textContent = "❌ ID no encontrado. Regístrate primero.";
+        mensaje.textContent = "❌ Error: el usuario no existe. Por favor, regístrate primero.";
+        mensaje.style.color = "#ff5e62";
         return;
     }
 

@@ -1,59 +1,52 @@
-import fs from "fs";
-
-const archivoDatos = "database/data.json";
-
 class Storage {
   static cargarDatos() {
-    try {
-      const data = fs.readFileSync(archivoDatos, "utf-8");
-      return JSON.parse(data);
-    } catch (error) {
-      console.error("Error al cargar los datos:", error);
-      return { clientes: [] }; // Si el archivo no existe, devuelve una estructura vacía
-    }
+    const data = localStorage.getItem("clientes");
+    return data ? JSON.parse(data) : [];
   }
 
-  static guardarDatos(datos) {
-    try {
-      fs.writeFileSync(archivoDatos, JSON.stringify(datos, null, 2));
-      console.log("✅ Datos guardados correctamente.");
-    } catch (error) {
-      console.error("❌ Error al guardar los datos:", error);
-    }
+  static guardarDatos(clientes) {
+    localStorage.setItem("clientes", JSON.stringify(clientes));
   }
 
   static buscarCliente(id) {
-    const datos = this.cargarDatos();
-    return datos.clientes.find(cliente => cliente.id === id) || null;
+    const clientes = this.cargarDatos();
+    return clientes.find(cliente => cliente.id === id) || null;
+  }
+
+  static agregarCliente(cliente) {
+    const clientes = this.cargarDatos();
+    clientes.push(cliente);
+    this.guardarDatos(clientes);
   }
 
   static actualizarSaldo(id, nuevoSaldo) {
-    const datos = this.cargarDatos();
-    const cliente = datos.clientes.find(cliente => cliente.id === id);
+    const clientes = this.cargarDatos();
+    const cliente = clientes.find(cliente => cliente.id === id);
     if (cliente) {
       cliente.saldo = nuevoSaldo;
-      this.guardarDatos(datos);
+      this.guardarDatos(clientes);
     }
   }
 
   static agregarTransaccion(idCliente, transaccion) {
-    const datos = this.cargarDatos();
-    const cliente = datos.clientes.find(cliente => cliente.id === idCliente);
+    const clientes = this.cargarDatos();
+    const cliente = clientes.find(cliente => cliente.id === idCliente);
     if (cliente) {
+      if (!cliente.historialTransacciones) cliente.historialTransacciones = [];
       cliente.historialTransacciones.push(transaccion);
-      this.guardarDatos(datos);
+      this.guardarDatos(clientes);
       return "Transacción guardada exitosamente.";
     }
     return "Cliente no encontrado.";
   }
 
   static actualizarPuntos(idCliente, nuevosPuntos, nuevoRango) {
-    const datos = this.cargarDatos();
-    const cliente = datos.clientes.find(cliente => cliente.id === idCliente);
+    const clientes = this.cargarDatos();
+    const cliente = clientes.find(cliente => cliente.id === idCliente);
     if (cliente) {
       cliente.puntos = nuevosPuntos;
       cliente.rango = nuevoRango;
-      this.guardarDatos(datos);
+      this.guardarDatos(clientes);
     }
   }
 }
